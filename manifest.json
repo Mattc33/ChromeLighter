@@ -1,16 +1,33 @@
 {
-  "manifest_version": 2,
+    //main
+    "manifest_version": 2,
+    "name": "ChromeLighter",
+    "version": "1.0",
 
-  "name": "ChromeLighter",
-  "description": "A simple highlighting tool for chrome.",
-  "version": "1.0",
+    //Recommended
+    "description": "A simple highlighting tool for chrome.",
+    "icons": {
+        "128": "src/img/icon128.png"
+    }
 
-  "browser_action": {
-    "default_icon": "src/images/icon128.png",
-    "default_popup": "src/popup.html"
-  },
-  "permissions": [
-    "activeTab",
-    "https://ajax.googleapis.com/"
-  ]
+    //types of action: browser, Page, or none
+    "browser_action": {
+        "default_title": "A simple highlighting tool for chrome.",
+        "default_popup": "src/popup.html"
+    },
+
+    "content_scripts": [
+    {
+        "matches": ["<all_urls>"], //matches any url
+        "css": ["src/css/style.css"]
+    }],
+
+    "web_accessible_resources": [
+        "src/css/style.css"
+    ],
+
+    "permissions": [
+        "activeTab",
+        "https://ajax.googleapis.com/"
+    ]
 }
