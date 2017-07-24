@@ -15,7 +15,22 @@
         "default_popup": "popup.html"
     },
 
-    "permissions": ["tabs", "http://*/*", "https://*/*", "file:///*/*"],
+    "permissions": [
+        "tabs",
+        "http://*/*",
+        "https://*/*",
+        "file:///*/*",
+        "contextMenus"
+    ],
+
+    "background":{
+        "scripts": [
+            "src/js/jquery-3.2.1.min.js",
+            "src/js/injectCSS.js",
+            "src/js/eventPage.js"
+        ],
+        "persistent": false
+    },
 
     "content_scripts": [
         {
@@ -25,10 +40,5 @@
         }
     ],
 
-    "web_accessible_resources": ["src/css/styles.css"],
-
-    "permissions": [
-        "activeTab",
-        "https://ajax.googleapis.com/"
-    ]
+    "web_accessible_resources": ["src/css/styles.css"]
 }
